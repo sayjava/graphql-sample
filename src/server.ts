@@ -19,14 +19,7 @@ export const create = (config: ServerConfig) => {
   );
 
   return {
-    start: () => {
-      console.log(
-        `Running the prototype GraphQL API server at http://localhost:${config.port}/graphql`
-      );
-      socket = app.listen(config.port);
-    },
-    stop: () => {
-      socket && socket.close();
-    },
+    start: () => (socket = app.listen(config.port)),
+    stop: () => socket && socket.close(),
   };
 };
