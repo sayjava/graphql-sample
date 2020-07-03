@@ -1,6 +1,6 @@
 {
   "name": "graphql-sample",
-  "version": "0.0.0-development",
+  "version": "1.0.1",
   "author": "Raymond Ottun <sayjava@gmail.com>",
   "license": "MIT",
   "description": "Zero coding, GraphQL API prototyping",
