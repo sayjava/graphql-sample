@@ -27,15 +27,19 @@ export default ({ schema }: any): SkimahCLIConfig => {
   };
 
   files.forEach((file) => {
-    const [fileExt, fileName] = file.split(".").reverse();
-    const dsName = fileName.toLowerCase();
+    try {
+      const [fileExt, fileName] = file.split(".").reverse();
+      const dsName = fileName.toLowerCase();
 
-    if (["csv", "json"].includes(fileExt)) {
-      config.sources[dsName] = {
-        name: dsName,
-        type: fileExt,
-        filepath: join(project, file),
-      };
+      if (["csv", "json"].includes(fileExt)) {
+        config.sources[dsName] = {
+          name: dsName,
+          type: fileExt,
+          filepath: join(project, file),
+        };
+      }
+    } catch {
+      // silent fail for files that not be parsed
     }
   });
 

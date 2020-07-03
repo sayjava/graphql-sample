@@ -7,17 +7,13 @@ import { create } from "./server";
 import skimah from "./skimah";
 const pkg = require("../package.json");
 
-const DEFAULT_SCHEMA = "schema.graphql";
-
 const program = new commander.Command()
   .name("graphql-sample")
+  .option("-s, --schema <schema>", "path to schema file", "schema.graphql")
+  .option("-p, --port <number>", "server port")
   .description("Graphql Sample: Rapid GraphQL API prototyping")
   .version(pkg.version, "-v, --vers", "output the current version")
-  .option("-s, --schema", "path to schema file", DEFAULT_SCHEMA)
-  .option("-p, --port", "server port")
-  .parse();
-
-console.log("SCHEMA ", program.schema);
+  .parse(process.argv);
 
 if (!existsSync(program.schema)) {
   process.stdout.write(program.helpInformation());

@@ -106,3 +106,5 @@ dist
 lib
 
 .DS_Store
+
+.npmrc

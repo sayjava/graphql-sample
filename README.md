@@ -22,8 +22,7 @@ Create a type definition file and name it `schema.graphql` with the following co
 
 ```graphql
 type User {
-  userid: ID
-
+  userid: ID # Auto-generated IDs
   firstName: String @named(as: "name_firstName")
   lastName: String @named(as: "name_lastName")
 
@@ -31,7 +30,7 @@ type User {
 }
 
 type Vote {
-  voteId: Int @unique
+  voteId: Int @unique # Auto-generated IDs
   timestamp: String @named(as: "date_recent")
   total: Int @nameD(as: "random_number")
 
@@ -98,6 +97,8 @@ See the full list of available faker.js functions here at [faker.js namespaces a
 - image_city
 
 See [faker.js namespaces and functions](https://rawgit.com/Marak/faker.js/master/examples/browser/index.html)
+
+Any field defined as an `ID` or with `@unique` directive will be auto-generated
 
 ## Advance Usage
 
