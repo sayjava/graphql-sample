@@ -1,23 +1,10 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
-import { buildSchema } from "graphql";
-
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return "Hello world!";
-  },
-};
+import { GraphQLSchema } from "graphql";
 
 export interface ServerConfig {
   port: number;
+  schema: GraphQLSchema;
 }
 
 export const create = (config: ServerConfig) => {
@@ -26,8 +13,7 @@ export const create = (config: ServerConfig) => {
   app.use(
     "/graphql",
     graphqlHTTP({
-      schema: schema,
-      rootValue: root,
+      schema: config.schema,
       graphiql: true,
     })
   );
@@ -35,7 +21,7 @@ export const create = (config: ServerConfig) => {
   return {
     start: () => {
       console.log(
-        `Running a GraphQL API server at http://localhost:${config.port}/graphql`
+        `Running the prototype GraphQL API server at http://localhost:${config.port}/graphql`
       );
       socket = app.listen(config.port);
     },

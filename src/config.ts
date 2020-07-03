@@ -2,10 +2,11 @@ import { lstatSync, readdirSync, readFileSync } from "fs";
 import { dirname, join } from "path";
 
 export interface SkimahCLIConfig {
-  schema: string;
+  typeDefs: string;
   sources: {
     [key: string]: {
-      filePath: string;
+      name: string;
+      filepath: string;
       type: string;
     };
   };
@@ -21,7 +22,7 @@ export default ({ schema }: any): SkimahCLIConfig => {
   }
 
   const config: SkimahCLIConfig = {
-    schema: readFileSync(schema).toString(),
+    typeDefs: readFileSync(schema).toString(),
     sources: {},
   };
 
@@ -31,8 +32,9 @@ export default ({ schema }: any): SkimahCLIConfig => {
 
     if (["csv", "json"].includes(fileExt)) {
       config.sources[dsName] = {
+        name: dsName,
         type: fileExt,
-        filePath: join(project, file),
+        filepath: join(project, file),
       };
     }
   });
