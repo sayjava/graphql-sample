@@ -1,13 +1,11 @@
+<h1 align="center" style="border-bottom: none;">📦🚀 graphql-sample</h1>
 <p align="center">
-<h1 align="center">
-GraphQL Sampler 
-</h1>
 <p align="center">
     Zero Coding, ⚡ Rapid GraphQL API prototyping
 </p>
 <p align="center">
 <a href="#">
-<img src="https://github.com/sayjava/graphql-sampler/workflows/test/badge.svg" alt="CI Status">
+<img src="https://github.com/sayjava/graphql-sample/workflows/test/badge.svg" alt="CI Status">
 </a>
 </p>
 
@@ -44,7 +42,7 @@ type Vote {
 and in the same folder run
 
 ```sh
-npx @skimah/graphql-sampler
+npx @skimah/graphql-sample
 ```
 
 The GraphQL server will be running at `http://localhost:8080/graphql`. It comes with an IDE to query in the browser or use `HTTP POST`
@@ -80,12 +78,12 @@ mutation {
 ## Usage & Options
 
 ```sh
-npx @skimah/graphql-sampler --help
+npx @skimah/graphql-sample --help
 ```
 
 ## Generating Sample Data
 
-`@skimah/graphql-sampler` uses the wonderful [faker.js](https://github.com/marak/Faker.js/) underneath to generate sample data for the type fields using the format `@named(as: "namespace_function")` where namespace can be e.g `name` and function can be `firstName`
+`@skimah/graphql-sample` uses the wonderful [faker.js](https://github.com/marak/Faker.js/) underneath to generate sample data for the type fields using the format `@named(as: "namespace_function")` where namespace can be e.g `name` and function can be `firstName`
 
 See the full list of available faker.js functions here at [faker.js namespaces and functions](https://rawgit.com/Marak/faker.js/master/examples/browser/index.html)
 

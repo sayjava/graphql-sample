@@ -10,8 +10,8 @@ const pkg = require("../package.json");
 const DEFAULT_SCHEMA = "schema.graphql";
 
 const program = new commander.Command()
-  .name("graphql-sampler")
-  .description("Graphql Sampler: Rapid GraphQL API prototyping")
+  .name("graphql-sample")
+  .description("Graphql Sample: Rapid GraphQL API prototyping")
   .version(pkg.version, "-v, --vers", "output the current version")
   .option("-s, --schema", "path to schema file", DEFAULT_SCHEMA)
   .option("-p, --port", "server port")
@@ -64,7 +64,7 @@ watchFile(program.schema, start);
 
 console.log(
   chalk.bold.blue(
-    " ................ GraphQL Sampler: Rapid GraphQL API Prototyping ................ "
+    " ................ GraphQL Sample: Rapid GraphQL API Prototyping ................ "
   )
 );
 start();
