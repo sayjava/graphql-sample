@@ -3,11 +3,11 @@
 GraphQL Sampler 
 </h1>
 <p align="center">
-    Zero Conding, ⚡ Rapid GraphQL API prototyping
+    Zero Coding, ⚡ Rapid GraphQL API prototyping
 </p>
 <p align="center">
 <a href="#">
-<img src="https://github.com/skimah/graphql-sampler/workflows/test/badge.svg" alt="CI Status">
+<img src="https://github.com/sayjava/graphql-sampler/workflows/test/badge.svg" alt="CI Status">
 </a>
 </p>
 
