@@ -1,4 +1,4 @@
-<h1 align="center" style="border-bottom: none;">📦🚀 graphql-sample</h1>
+<h1 align="center" style="border-bottom: none;">⚡ graphql-sample ⚡</h1>
 <p align="center">
 <p align="center">
     Zero Coding, ⚡ Rapid GraphQL API prototyping
