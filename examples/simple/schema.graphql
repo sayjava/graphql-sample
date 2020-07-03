@@ -1,0 +1,18 @@
+# See https://rawgit.com/Marak/faker.js/master/examples/browser/index.html
+# for fakerjs datasources
+
+type User {
+  userid: Int @unique
+
+  firstName: String @named(as: "name_firstName")
+  lastName: String @named(as: "name_lastName")
+
+  votes: [Vote!] @relation
+}
+
+type Vote {
+  voteId: Int @unique
+  timestamp: String @named(as: "date_recent")
+
+  user: User @relation
+}

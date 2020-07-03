@@ -1,0 +1,25 @@
+type Customer @datasource(name: "customer") {
+  id: ID @named(as: "CustomerId")
+  firstName: String @named(as: "FirstName")
+  lastName: String @named(as: "LastName")
+  company: String @named(as: "Company")
+  email: String @named(as: "Email")
+  country: String @named(as: "Country")
+
+  supportRep: Employee! @relation @named(as: "SupportRepId")
+}
+
+type Employee @datasource(name: "employee") {
+  id: ID @named(as: "EmployeeId")
+  firstName: String @named(as: "FirstName")
+  lastName: String @named(as: "LastName")
+  title: String @named(as: "Title")
+  email: String @named(as: "Email")
+
+  supporting: [Customer] @relation
+}
+
+type Album @datasource(name: "album") {
+  id: ID @named(as: "AlbumId")
+  title: String @named(as: "Title")
+}
