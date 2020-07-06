@@ -1,6 +1,6 @@
 {
   "name": "graphql-sample",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Raymond Ottun <sayjava@gmail.com>",
   "license": "MIT",
   "description": "Zero coding, GraphQL API prototyping",
@@ -32,7 +32,7 @@
     "url": "https://github.com/sayjava/graphql-sample.git"
   },
   "dependencies": {
-    "@skimah/api": "^0.1.0",
+    "@skimah/api": "0.3.1",
     "@skimah/ds-csv": "^0.1.0",
     "@skimah/ds-faker": "^0.1.0",
     "@types/node": "^14.0.14",
