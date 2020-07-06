@@ -51,6 +51,7 @@ const start = async () => {
     );
     server.start();
   } catch (error) {
+    console.log(error.stack);
     console.log(`🔴 ${chalk.redBright(error)}`);
   }
 };

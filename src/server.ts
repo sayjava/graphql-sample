@@ -15,6 +15,10 @@ export const create = (config: ServerConfig) => {
     graphqlHTTP({
       schema: config.schema,
       graphiql: true,
+      customFormatErrorFn: (err) => {
+        console.error(err.stack);
+        return err.stack;
+      },
     })
   );
 
