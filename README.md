@@ -6,6 +6,8 @@
 <p align="center">
 <a href="#">
 <img src="https://github.com/sayjava/graphql-sample/workflows/test/badge.svg" alt="CI Status">
+<img src="https://badge.fury.io/js/graphql-sample.svg" alt="CI Status">
+
 </a>
 </p>
 
@@ -41,7 +43,7 @@ type Vote {
 and in the same folder run
 
 ```sh
-npx @skimah/graphql-sample
+npx graphql-sample
 ```
 
 The GraphQL server will be running at `http://localhost:8080/graphql`. It comes with an IDE to query in the browser or use `HTTP POST`
@@ -77,12 +79,12 @@ mutation {
 ## Usage & Options
 
 ```sh
-npx @skimah/graphql-sample --help
+npx graphql-sample --help
 ```
 
 ## Generating Sample Data
 
-`@skimah/graphql-sample` uses the wonderful [faker.js](https://github.com/marak/Faker.js/) underneath to generate sample data for the type fields using the format `@named(as: "namespace_function")` where namespace can be e.g `name` and function can be `firstName`
+`graphql-sample` uses the wonderful [faker.js](https://github.com/marak/Faker.js/) underneath to generate sample data for the type fields using the format `@named(as: "namespace_function")` where namespace can be e.g `name` and function can be `firstName`
 
 See the full list of available faker.js functions here at [faker.js namespaces and functions](https://rawgit.com/Marak/faker.js/master/examples/browser/index.html)
 
