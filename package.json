@@ -1,6 +1,6 @@
 {
   "name": "graphql-sample",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Raymond Ottun <sayjava@gmail.com>",
   "license": "MIT",
   "description": "Zero coding, GraphQL API prototyping",
@@ -25,7 +25,7 @@
     "build": "tsc",
     "start": "lib/cli.js",
     "dev": "ts-node src/cli.ts",
-    "release": "yarn build && semantic-release"
+    "release": "yarn build && semantic-release --no-ci"
   },
   "repository": {
     "type": "git",
