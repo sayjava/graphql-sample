@@ -13,6 +13,16 @@ type Board {
   owner: Member @relation
   members: [BoardMembership] @relation
   limitations: [Limitation]
+  cards: [Card] @relation
+}
+
+type Card {
+  id: ID
+  title: String @named(as: "lorem_word")
+  description: String @named(as: "lorem_paragraph")
+  created_at: String @named(as: "date_recent")
+
+  baord: Board @relation
 }
 
 type BoardMembership {
