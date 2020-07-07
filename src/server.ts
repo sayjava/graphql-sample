@@ -1,5 +1,5 @@
 import express from "express";
-import graphqlHTTP from "express-graphql";
+import { ApolloServer } from "apollo-server-express";
 import { GraphQLSchema } from "graphql";
 
 export interface ServerConfig {
@@ -10,17 +10,12 @@ export interface ServerConfig {
 export const create = (config: ServerConfig) => {
   let socket;
   const app = express();
-  app.use(
-    "/graphql",
-    graphqlHTTP({
-      schema: config.schema,
-      graphiql: true,
-      customFormatErrorFn: (err) => {
-        console.error(err.stack);
-        return err.stack;
-      },
-    })
-  );
+  const server = new ApolloServer({
+    schema: config.schema,
+    playground: true,
+  });
+
+  server.applyMiddleware({ app });
 
   return {
     start: () => (socket = app.listen(config.port)),
