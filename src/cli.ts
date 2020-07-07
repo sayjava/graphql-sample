@@ -24,12 +24,7 @@ const port = parseInt(program.port, 10) || 8080;
 
 let server;
 const start = async () => {
-  if (server) {
-    console.log(chalk.blue("🔆  Detected Schema Change, Restarting ......"));
-    server.stop();
-  } else {
-    console.log(chalk.green("🔆 Starting ......"));
-  }
+  console.log(chalk.green("🔆 Starting ......"));
 
   try {
     const config = loadConfig(program);
@@ -56,8 +51,17 @@ const start = async () => {
   }
 };
 
+const schemaWatcher = () => {
+  if (server) {
+    console.log(chalk.blue("🔆  Detected Schema Change, Restarting ......"));
+    server.stop();
+  }
+
+  start();
+};
+
 // Start watching file
-watchFile(program.schema, start);
+watchFile(program.schema, schemaWatcher);
 
 console.log(
   chalk.bold.blue(
@@ -67,7 +71,7 @@ console.log(
 start();
 
 process.on("SIGINT", () => {
-  unwatchFile(program.schema, start);
+  unwatchFile(program.schema, schemaWatcher);
   server && server.stop();
   process.exit(0);
 });

@@ -1,0 +1,51 @@
+type Member @datasource(name: "users") {
+  userid: Int @unique @named(as: "UserId")
+  name: String @named(as: "FirstName")
+  email: String @named(as: "Email")
+
+  boards: [Board] @relation
+  memberships: [BoardMembership] @relation
+}
+
+type Board {
+  id: ID
+  name: String @named(as: "lorem_word")
+  owner: Member @relation
+  members: [BoardMembership] @relation
+  limitations: [Limitation]
+}
+
+type BoardMembership {
+  id: ID
+  board: Board @relation
+  member: Member @relation
+  created_at: String @named(as: "date_recent")
+}
+
+enum LimitStatus {
+  ok
+  warn
+  disable
+}
+
+enum LimitationType {
+  board
+  card
+  membership
+}
+
+interface Limitation {
+  id: ID
+  type: LimitationType
+  status: LimitStatus
+  disableAt: Int
+  warnAt: Int
+}
+
+type AttachmentLimit implements Limitation {
+  id: ID
+  type: LimitationType
+  status: LimitStatus
+  disableAt: Int @named(as: "random_number")
+  warnAt: Int @named(as: "random_number")
+}
